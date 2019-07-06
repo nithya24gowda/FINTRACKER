@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<style>
+a:link, a:visited {
+    background-color: #388222;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+a:hover, a:active {
+    background-color: black;
+}
+
+h1 {
+    text-align: top right;
+    text-transform: uppercase;
+    color: white;
+    background-color: orange;
+    padding: 30px;
+	width: 200%;
+}
+
+</style>
+
+<h1>OPERATIONS</h1>
+<div1 class="breadcrumbs inventory"  >
+
+                <div1 class="page-header float-left" >
+                    <div1 class="page-title" >
+                        <div class="header-menu" style="margin-left:50px;">
+
+                	<?php if($_SESSION['userType']=='manager') { ?>
+					<a href="org_alloc.php" id ="Operation-org_alloc" class="btn button_color <?php echo ((basename($_SERVER['PHP_SELF'])=='org_alloc.php')?'activeSubMenu':'');?>" >&nbsp;org_alloc</a>	
+					<a href="dept_alloc.php" id ="Operation-dept_alloc" class="btn button_color <?php echo ((basename($_SERVER['PHP_SELF'])=='dept_alloc.php')?'activeSubMenu':'');?>">&nbsp; dept_alloc</a>
+				  <a href="project_alloc.php" id ="Operation-project_alloc" class="btn button_color <?php echo ((basename($_SERVER['PHP_SELF'])=='project_alloc.php')?'activeSubMenu':'');?>">&nbsp; Project_alloc</a> 
+				  <a href="project_costing.php" id ="Operation-project_costing" class="btn button_color <?php echo ((basename($_SERVER['PHP_SELF'])=='project_costing.php')?'activeSubMenu':'');?>">&nbsp; Project_costing</a> 
+                  <a href="project_tracker.php" id ="Operation-project_tracker" class="btn button_color <?php echo ((basename($_SERVER['PHP_SELF'])=='project_tracker.php')?'activeSubMenu':'');?>">&nbsp; Project_tracker</a>  
+				 
+					<?php } ?>
+                     
+                     
+                    
+                </div></div1>
+ 
+            </div1>
+
+                    
+                </div1>
+</body>
+</html>

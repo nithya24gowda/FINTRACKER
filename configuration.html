@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+ 
+<style>
+a:link, a:visited {
+    background-color: green;
+    color: white;
+    padding: 14px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+ 
+
+a:hover, a:active {
+    background-color: black;
+}
+
+h1 {
+    text-align: top right;
+    text-transform: uppercase;
+    color:white;
+    background-color:tomato;
+    padding: 30px;
+	width: 110%;
+}
+ body {
+   // background-image: url("image3.jpg");
+    background-repeat:no-repeat; 
+    background-position: down;
+    margin-right: 200px;
+	background-size: 100% 500%;
+	
+}
+</style>
+
+<h1>CONFIGURATION</h1>
+<div1 class="breadcrumbs inventory"  >
+
+                <div1 class="page-header float-left" >
+                    <div1 class="page-title" >
+                        <div class="header-menu" style="margin-left:50px;">
+
+                	<?php if($_SESSION['userType']=='manager') { ?>
+					<a href="configurationuser.php" id ="configuration-user" class="btn button_color <?php echo ((basename($_SERVER['PHP_SELF'])=='configurationuser.php')?'activeSubMenu':'');?>" >&nbsp;User</a>	
+					<a href="configurationorganisation.php" id ="configuration-organisation" class="btn button_color <?php echo ((basename($_SERVER['PHP_SELF'])=='configurationorganisation.php')?'activeSubMenu':'');?>">&nbsp; Organisation</a>
+				  <a href="configurationdepartment.php" id ="configuration-department" class="btn button_color <?php echo ((basename($_SERVER['PHP_SELF'])=='configurationdepartment.php')?'activeSubMenu':'');?>">&nbsp; Department</a> 
+				  <a href="configurationproject.php" id ="configuration-project" class="btn button_color <?php echo ((basename($_SERVER['PHP_SELF'])=='configurationproject.php')?'activeSubMenu':'');?>">&nbsp; Project</a> 
+				  <a href="configurationrole.php" id ="configuration-role" class="btn button_color <?php echo ((basename($_SERVER['PHP_SELF'])=='configurationrole.php')?'activeSubMenu':'');?>">&nbsp; Role</a> 
+				   <a href="configurationcosting.php" id ="configuration-costing" class="btn button_color <?php echo ((basename($_SERVER['PHP_SELF'])=='configurationcosting.php')?'activeSubMenu':'');?>">&nbsp; Costing</a>  
+				 
+					<?php } ?>
+                     
+                     
+                    
+                </div></div1>
+ 
+            </div1>
+
+                    
+                </div1>
+</body>
+</html>

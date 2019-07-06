@@ -1,0 +1,583 @@
+<?php 
+session_start();
+?>
+<!doctype html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Myapps Solutions</title>
+    <meta name="description" >
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+   
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/flag-icon.min.css">
+    <link rel="stylesheet" href="assets/css/cs-skin-elastic.css">
+	 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> 
+	  <link rel="stylesheet" href="/resources/demos/style.css"> -->
+    <link rel="stylesheet" href="assets/scss/style.css">
+    <link href="assets/css/lib/vector-map/jqvmap.min.css" rel="stylesheet">
+	<link href="http://www.highcharts.com.">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/TableExport/3.2.5/css/tableexport.min.css">
+  
+<script src="assets/js/vendor/jquery-2.1.4.min.js"></script> 
+  <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/TableExport/3.3.5/js/tableexport.min.js"></script>
+	 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+	
+		<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.5.1/css/buttons.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+ 
+
+    <!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.min.js"></script> -->
+
+	
+	<style>
+			/* -----------------------------------------
+   Timeline
+----------------------------------------- */
+.timeline {
+  list-style: none;
+  padding-left: 0;
+  position: relative;
+}
+.timeline:after {
+  content: "";
+  height: auto;
+  width: 1px;
+  background: #e3e3e3;
+  position: absolute;
+  top: 5px;
+  left: 30px;
+  bottom: 25px;
+}
+.timeline.timeline-sm:after {
+  left: 12px;
+}
+.timeline li {
+  position: relative;
+  padding-left: 70px;
+  margin-bottom: 20px;
+}
+.timeline li:after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #e3e3e3;
+  position: absolute;
+  left: 24px;
+  top: 5px;
+}
+.timeline li .timeline-date {
+  display: inline-block;
+  width: 100%;
+  color: #a6a6a6;
+  font-style: italic;
+  font-size: 13px;
+}
+.timeline.timeline-icons li {
+  padding-top: 7px;
+}
+.timeline.timeline-icons li:after {
+  width: 32px;
+  height: 32px;
+  background: #fff;
+  border: 1px solid #e3e3e3;
+  left: 14px;
+  top: 0;
+  z-index: 11;
+}
+.timeline.timeline-icons li .timeline-icon {
+  position: absolute;
+  left: 23.5px;
+  top: 7px;
+  z-index: 12;
+}
+.timeline.timeline-icons li .timeline-icon [class*=glyphicon] {
+  top: -1px !important;
+}
+.timeline.timeline-icons.timeline-sm li {
+  padding-left: 40px;
+  margin-bottom: 10px;
+}
+.timeline.timeline-icons.timeline-sm li:after {
+  left: -5px;
+}
+.timeline.timeline-icons.timeline-sm li .timeline-icon {
+  left: 4.5px;
+}
+.timeline.timeline-advanced li {
+  padding-top: 0;
+}
+.timeline.timeline-advanced li:after {
+  background: #fff;
+  border: 1px solid #29b6d8;
+}
+.timeline.timeline-advanced li:before {
+  content: "";
+  width: 52px;
+  height: 52px;
+  border: 10px solid #fff;
+  position: absolute;
+  left: 4px;
+  top: -10px;
+  border-radius: 50%;
+  z-index: 12;
+}
+.timeline.timeline-advanced li .timeline-icon {
+  color: #29b6d8;
+}
+.timeline.timeline-advanced li .timeline-date {
+  width: 75px;
+  position: absolute;
+  right: 5px;
+  top: 3px;
+  text-align: right;
+}
+.timeline.timeline-advanced li .timeline-title {
+  font-size: 17px;
+  margin-bottom: 0;
+  padding-top: 5px;
+  font-weight: bold;
+}
+.timeline.timeline-advanced li .timeline-subtitle {
+  display: inline-block;
+  width: 100%;
+  color: #a6a6a6;
+}
+.timeline.timeline-advanced li .timeline-content {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-right: 70px;
+}
+.timeline.timeline-advanced li .timeline-content p {
+  margin-bottom: 3px;
+}
+.timeline.timeline-advanced li .timeline-content .divider-dashed {
+  padding-top: 0px;
+  margin-bottom: 7px;
+  width: 200px;
+}
+.timeline.timeline-advanced li .timeline-user {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.timeline.timeline-advanced li .timeline-user:before,
+.timeline.timeline-advanced li .timeline-user:after {
+  content: " ";
+  display: table;
+}
+.timeline.timeline-advanced li .timeline-user:after {
+  clear: both;
+}
+.timeline.timeline-advanced li .timeline-user .timeline-avatar {
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  float: left;
+  margin-right: 10px;
+}
+.timeline.timeline-advanced li .timeline-user .timeline-user-name {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+.timeline.timeline-advanced li .timeline-user .timeline-user-subtitle {
+  color: #a6a6a6;
+  margin-top: -4px;
+  margin-bottom: 0;
+}
+.timeline.timeline-advanced li .timeline-link {
+  margin-left: 5px;
+  display: inline-block;
+}
+.timeline-load-more-btn {
+  margin-left: 70px;
+}
+.timeline-load-more-btn i {
+  margin-right: 5px;
+}
+
+
+/* -----------------------------------------
+   Dropdown
+----------------------------------------- */
+.dropdown-menu{
+    padding:0 0 0 0;
+}
+a.dropdown-menu-header {
+    background: #f7f9fe;
+    font-weight: bold;
+    border-bottom: 1px solid #e3e3e3;
+}
+.dropdown-menu > li a {
+    padding: 5px 0px 5px 10px;
+	width: 100%;
+    display: block;
+}
+
+/* -----------------------------------------
+   Badge
+----------------------------------------- */
+
+.badge{
+    padding: 3px 5px 2px;
+    position: absolute;
+    top: 8px;
+    right: 5px;
+    display: inline-block;
+    min-width: 10px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ffffff;
+    line-height: 1;
+    vertical-align: baseline;
+    white-space: nowrap;
+    text-align: center;
+    border-radius: 10px;
+}
+.badge-danger {
+    background-color: #db5565;
+}
+.bg-flat-color-2{
+	background-color: #f5be8f;
+}
+.header-bg{
+	background: #FFF !important;
+}
+.inpro{
+	font-weight: 600;
+}
+.main-logo{
+		margin: 5px 50px 0px 10px;
+	}
+.admin {
+	color:#131212;
+	font-size: 19.5px;
+	font-family: "arial", Times, serif;
+	margin-bottom: 0;
+	margin-top:-6px;
+}
+.subpages {
+    padding: 15px 20px 13px 20px;
+    min-height: 100vh;
+    background: #fafcff40;
+}
+	.logout{
+		font-size: 26px;
+    	margin-left: 10px;
+		margin-top:1px;
+	}
+	.headlines{
+		margin-top: 18px;
+	}
+	.log-out:hover {
+		color: #c92127;
+	}
+.user-area{margin-top:9px;}
+font
+#customers th, thead {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+	vertical-align: middle !important;
+    background-color: #fff;
+    color: #0a0a0a;
+}
+.customtablesdata table th 
+{
+	background-color: #5F5353;
+	color: white;
+padding: 10px 5px;}
+
+.addexport {
+	background-color: #f98b4a;
+	color: white;
+}
+
+btn:active{
+    background:#F6CECE;
+}
+.login-form {
+    background: #ffffff;
+    padding: 10px 10px 20px !important;
+    border-radius: 2px;
+}
+.login-content {
+    max-width: 450px !important;
+    margin: 8vh auto;
+    margin-bottom: 30px;
+}
+.buttons_color {
+	/* background-color: #c71c08; */
+    /* border-bottom: 3px solid; */
+    color: white;
+    padding: 6px 20px;
+    text-align: center;
+    /* border-radius: 2px; */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 0px -2px;
+    cursor: pointer;
+}
+.navbar1 {
+	/* background-color: #c71c08; */
+    /* border-bottom: 3px solid; */
+    /*color: white;*/
+    padding: 6px 15px;
+    text-align: center;
+    /* border-radius: 2px; */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 0px -2px;
+    cursor: pointer;
+}
+.nav-tabs {
+	margin-top:-10px;
+    border-bottom: 0px solid #dee2e6;
+}
+.customtb {
+    overflow: auto;
+    height: 250px;
+}
+.table td {
+	  font-size: 12px;
+	  padding : 10px !important;
+  }
+  .table th{
+	  font-weight:600 !important;
+	  letter-spacing: .2px;
+  }
+  .table-bordered td {
+	  border : 1px;
+  }
+  .table tr {
+	  font-size:12px;
+	  vertical-align :top;
+	   vertical-align: top;
+    text-align: center;
+  }
+<!--.button_color {
+	background-color:#ccc;
+	border: none;
+    color: #fff;
+    padding: 5px 8px;
+    text-align: center;
+	border-radius: 2px;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 17px;
+    margin: 5px 2px;
+    cursor: pointer;
+}-->
+ .button_color {
+    background-color: #fff;
+    border-bottom: none;
+    color: black;
+    padding: 8px 18px;
+    text-align: center;
+    /* border-radius: 2px; */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: -2px 2px;
+    cursor: pointer;
+    margin-bottom: -3px;
+}
+.button_color1 {
+    background-color: #fff;
+    border-bottom: none;
+    color: black;
+    padding: 10px 18px;
+    text-align: center;
+    /* border-radius: 2px; */
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 1px -2px;
+    cursor: pointer;
+    margin-bottom: -3px;
+}
+.buttons_color:hover {
+    background-color: #f99a23 ;
+	color:#fff !important;
+}
+.buttons_color1:hover {
+    background-color: #f99a23 ;
+	color:#fff !important;
+}
+.bactive {
+	color: #fff  !important;
+	background-color: #de7a23;
+<!--	border-bottom: #88755d  3px solid; -->
+}
+.bactive span{
+	font-weight:500
+}
+
+
+.buttons_small {
+	background-color: #ff8f4e;
+	color:#fff;
+	border: none;
+	 padding: 10px 12px;
+	  font-size: 16px;
+	  border-radius: 2px;
+	  cursor: pointer;
+}
+.navbar {
+    background: #e9ebec;
+    border-radius: 0;
+    border: none;
+    display: block;
+    margin: 0;
+    margin-bottom: 5px;
+    padding: 0;
+}
+
+.right-panel header.header {
+  background: #fff;
+
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
+  clear: both;
+  display: inline-block;
+  padding: 6px !important;
+  width: 100%; }
+.modal-content {
+	padding:0px;
+}
+.modal-header {
+	padding:0.3rem;
+	background-color :#e8b251f0;
+	color : white;
+}
+.submitbutton{
+	color :#FFF;
+	background-color :#e8b251f0;
+}
+  .activeSubMenu{
+	  background-color:#4D4D4D;
+	  color: #fff;
+  }
+  
+  .right-panel .data {
+   background-color: #f4994a;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    margin-top: 0;
+    padding: 6px 1px!important;
+    width: 100%;
+    margin-top: -5px;
+  }
+.right-panel .inventory {
+    background-color: #fff;
+	 box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    margin-top: 0;
+    padding: 10px 20px!important;
+    width: 100%;
+	margin-top:0px;
+}
+.right-panel .page-header {
+    min-height: 35px;
+    margin: 0px;
+    padding: 0px 45px;
+    background: #ffffff;
+    border-bottom: 0px;
+}
+.nav-tabs {
+    a.active{
+       color: #fff !important;
+    cursor: default;
+    background-color: #252222;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}
+}
+</style>
+</head>
+
+
+<body>
+
+<div id="right-panel" class="right-panel">
+<! --- get the content layout for header-->
+<header id="header" class="header">
+
+    <div class="header-menu">
+
+        <div class="col-sm-3">
+                   
+			<div class="header-left newMenuItem" id="my_styles">
+				<a href="./"><img class="main-logo" src="./images/logo/company.png" alt="Logo"></a>
+            </div>
+			
+		</div>
+		
+		<div class="col-sm-5 headlines"> 
+			<h1> class="inpro" FIN TRACKER</h1>
+		</div>
+		
+		<div class="col-sm-3 headlines">
+			<div class="headerdropdown" style=" float:right">
+				<div class="dropdown float-left " style="display:flex;align-items: center;  "><!--user-area -->
+				
+					<?php if($_SESSION['userType']=='admin') { ?>
+                    <label class="admin">Welcome Admin!</label>
+					<?php } if($_SESSION['userType']=='cxo') { ?>
+					<label class="admin">Welcome CXO!</label>
+					<?php  } if($_SESSION['userType']=='depthead') {   ?>
+					<label class="admin">Welcome Department!</label>
+					<?php  } if($_SESSION['userType']=='promanager') {   ?>
+					<label class="admin">Welcome Manager!</label>
+					<?php } ?>
+				</div>
+			</div>
+		</div>
+</header>
+
+<div class="breadcrumbs data">
+<div class="paddingbread" style="padding:0px 10px;">
+
+<?php if($_SESSION['userType']=='promanager') { ?>
+	<div class="col-sm-6">	
+		<a href="#" class="btn buttons_color bactive"> <i class="fa fa-star"></i>&nbsp; Operations</a>
+	</div>
+
+<?php } if($_SESSION['userType']=='cxo') { 
+echo "handling cxo role"; ?>
+  <div class="col-sm-6">
+		<a href="#" class="btn buttons_color bactive"> <i class="fa fa-tachometer "> </i>&nbsp; <span>Dashboard</span></a>
+		
+		<a href="#" class="btn buttons_color bactive"> <i class="fa fa-star"></i>&nbsp; Operations</a>
+  </div>
+
+<?php } if($_SESSION['userType']=='depthead') { ?>
+	<div class="col-sm-6">
+		<a href="#" class="btn buttons_color bactive"> <i class="fa fa-tachometer "> </i>&nbsp; <span>Dashboard</span></a>
+		
+		<a href="#" class="btn buttons_color bactive"> <i class="fa fa-star"></i>&nbsp; Operations</a>
+	</div>
+
+<?php } if($_SESSION['userType']=='admin') { ?>
+	<div class="col-sm-6">
+		<a href="#" class="btn buttons_color bactive"> <i class="fa fa-tachometer "> </i>&nbsp; <span>Configuration</span></a>
+	</div>
+<?php } ?>
+
+</div>
+</div>
+
+</body>
+
+
+
+
